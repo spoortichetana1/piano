@@ -1,0 +1,204 @@
+/* -----------------------------------------
+   GLOBAL PAGE STYLES
+------------------------------------------ */
+
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: #111827;           /* dark navy */
+  color: #e5e7eb;                /* light grey */
+  text-align: center;
+  margin: 0;
+  padding: 20px;
+}
+
+h1 {
+  margin-bottom: 10px;
+}
+
+.hint {
+  margin-bottom: 15px;
+  color: #9ca3af;
+  line-height: 1.4;
+  font-size: 0.9rem;
+}
+
+.footer {
+  margin-top: 25px;
+  font-size: 0.9rem;
+  color: #6b7280;
+}
+
+/* -----------------------------------------
+   CONTROLS (buttons, sliders, etc.)
+------------------------------------------ */
+
+.controls {
+  margin: 10px auto 5px;
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.controls button {
+  border: none;
+  padding: 8px 14px;
+  border-radius: 6px;
+  background: #1f2937;
+  color: #e5e7eb;
+  cursor: pointer;
+  font-size: 0.85rem;
+}
+
+.controls button:hover {
+  background: #374151;
+}
+
+/* Active button state (recording / sustain on) */
+.controls button.active-btn {
+  background: #b91c1c;
+  color: #f9fafb;
+}
+
+.controls label {
+  font-size: 0.8rem;
+  color: #d1d5db;
+}
+
+.controls select {
+  padding: 6px 10px;
+  border-radius: 6px;
+  border: 1px solid #4b5563;
+  background: #111827;
+  color: #e5e7eb;
+  font-size: 0.85rem;
+}
+
+/* Speed slider */
+.controls input[type="range"] {
+  width: 90px;
+}
+
+/* Loop checkbox */
+.controls input[type="checkbox"] {
+  transform: scale(1.1);
+}
+
+/* Status text under controls */
+.status {
+  margin: 5px auto 15px;
+  font-size: 0.9rem;
+  color: #9ca3af;
+}
+
+/* -----------------------------------------
+   PIANO LAYOUT
+------------------------------------------ */
+
+.piano {
+  position: relative;
+  width: 820px;
+  max-width: 98vw;
+  height: 230px;
+  margin: 0 auto;
+}
+
+/* White keys container */
+.white-keys {
+  height: 100%;
+}
+
+/* White key style */
+.key.white {
+  float: left;
+  width: calc(100% / 14);               /* 14 white keys total */
+  height: 100%;
+  border: 1px solid #4b5563;
+  box-sizing: border-box;
+  background: linear-gradient(to bottom, #f9fafb, #e5e7eb);
+  border-radius: 0 0 6px 6px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding-bottom: 8px;
+  font-weight: 600;
+  font-size: 0.7rem;
+  color: #374151;
+  cursor: pointer;
+  transition:
+    transform 0.05s ease,
+    box-shadow 0.05s ease,
+    background 0.05s ease;
+}
+
+/* Black keys container (sits on top of white keys) */
+.black-keys {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 60%;
+  pointer-events: none;         /* pass events to child keys */
+}
+
+/* Black key style */
+.key.black {
+  position: absolute;
+  width: 5.5%;
+  height: 100%;
+  background: #020617;
+  border-radius: 0 0 6px 6px;
+  border: 1px solid #000;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+  pointer-events: auto;
+  transition:
+    transform 0.05s ease,
+    box-shadow 0.05s ease,
+    background 0.05s ease;
+}
+
+/* -----------------------------------------
+   ACTIVE / PRESSED STATE
+------------------------------------------ */
+
+.key.active {
+  transform: translateY(3px);
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.4);
+}
+
+.key.white.active {
+  background: linear-gradient(to bottom, #e5e7eb, #d1d5db);
+}
+
+.key.black.active {
+  background: #000000;
+}
+
+/* -----------------------------------------
+   RESPONSIVE ADJUSTMENTS
+------------------------------------------ */
+
+@media (max-width: 600px) {
+  .hint {
+    font-size: 0.8rem;
+  }
+
+  .piano {
+    height: 190px;
+  }
+
+  .key.white {
+    font-size: 0.6rem;
+  }
+
+  .controls {
+    gap: 6px;
+  }
+
+  .controls button {
+    font-size: 0.75rem;
+    padding: 6px 10px;
+  }
+}

@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Virtual Piano</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <h1>Virtual Piano 🎹</h1>
+
+  <!-- Small hint for keyboard layout -->
+  <p class="hint">
+    <strong>Octave 1 (C4–B4):</strong> A S D F G H J (white) — W E T Y U (black) <br />
+    <strong>Octave 2 (C5–B5):</strong> Z X C V B N M (white) — 1 2 3 4 5 (black) <br />
+    <strong>Sustain pedal:</strong> Shift key or "Sustain" button
+  </p>
+
+  <!-- Controls row -->
+  <div class="controls">
+    <!-- Recording controls -->
+    <button id="recordBtn">● Record</button>
+    <button id="stopRecordBtn">■ Stop</button>
+    <button id="playBtn">▶ Play</button>
+
+    <!-- Sustain -->
+    <button id="sustainBtn">Sustain: Off</button>
+
+    <!-- Loop toggle -->
+    <label for="loopToggle">Loop</label>
+    <input type="checkbox" id="loopToggle" />
+
+    <!-- Speed control -->
+    <label for="speedSlider">Speed:</label>
+    <input
+      type="range"
+      id="speedSlider"
+      min="0.5"
+      max="1.5"
+      step="0.1"
+      value="1"
+    />
+    <span id="speedLabel">1.0x</span>
+
+    <!-- Sound type selector -->
+    <label for="soundType">Sound:</label>
+    <select id="soundType">
+      <option value="triangle" selected>Plucky</option>
+      <option value="sine">Soft</option>
+      <option value="square">Chiptune</option>
+      <option value="sawtooth">Bright</option>
+    </select>
+
+    <!-- Lesson mode -->
+    <button id="lessonBtn">Play Lesson 🎵</button>
+  </div>
+
+  <!-- Status text -->
+  <p id="status" class="status">Ready.</p>
+
+  <!-- Piano -->
+  <div class="piano">
+    <!-- White keys: 2 octaves (C4–B5) -->
+    <div class="white-keys">
+      <!-- Octave 1 -->
+      <div class="key white" data-note="C4" data-frequency="261.63" data-key="a">C4</div>
+      <div class="key white" data-note="D4" data-frequency="293.66" data-key="s">D4</div>
+      <div class="key white" data-note="E4" data-frequency="329.63" data-key="d">E4</div>
+      <div class="key white" data-note="F4" data-frequency="349.23" data-key="f">F4</div>
+      <div class="key white" data-note="G4" data-frequency="392.00" data-key="g">G4</div>
+      <div class="key white" data-note="A4" data-frequency="440.00" data-key="h">A4</div>
+      <div class="key white" data-note="B4" data-frequency="493.88" data-key="j">B4</div>
+
+      <!-- Octave 2 -->
+      <div class="key white" data-note="C5" data-frequency="523.25" data-key="z">C5</div>
+      <div class="key white" data-note="D5" data-frequency="587.33" data-key="x">D5</div>
+      <div class="key white" data-note="E5" data-frequency="659.25" data-key="c">E5</div>
+      <div class="key white" data-note="F5" data-frequency="698.46" data-key="v">F5</div>
+      <div class="key white" data-note="G5" data-frequency="783.99" data-key="b">G5</div>
+      <div class="key white" data-note="A5" data-frequency="880.00" data-key="n">A5</div>
+      <div class="key white" data-note="B5" data-frequency="987.77" data-key="m">B5</div>
+    </div>
+
+    <!-- Black keys (absolute positioned) -->
+    <div class="black-keys">
+      <!-- Octave 1 black keys -->
+      <div
+        class="key black"
+        data-note="C#4"
+        data-frequency="277.18"
+        data-key="w"
+        style="left: 3.6%;"
+      ></div>
+      <div
+        class="key black"
+        data-note="D#4"
+        data-frequency="311.13"
+        data-key="e"
+        style="left: 10.7%;"
+      ></div>
+      <div
+        class="key black"
+        data-note="F#4"
+        data-frequency="369.99"
+        data-key="t"
+        style="left: 25%;"
+      ></div>
+      <div
+        class="key black"
+        data-note="G#4"
+        data-frequency="415.30"
+        data-key="y"
+        style="left: 32.1%;"
+      ></div>
+      <div
+        class="key black"
+        data-note="A#4"
+        data-frequency="466.16"
+        data-key="u"
+        style="left: 39.3%;"
+      ></div>
+
+      <!-- Octave 2 black keys -->
+      <div
+        class="key black"
+        data-note="C#5"
+        data-frequency="554.37"
+        data-key="1"
+        style="left: 53.6%;"
+      ></div>
+      <div
+        class="key black"
+        data-note="D#5"
+        data-frequency="622.25"
+        data-key="2"
+        style="left: 60.7%;"
+      ></div>
+      <div
+        class="key black"
+        data-note="F#5"
+        data-frequency="739.99"
+        data-key="3"
+        style="left: 75%;"
+      ></div>
+      <div
+        class="key black"
+        data-note="G#5"
+        data-frequency="830.61"
+        data-key="4"
+        style="left: 82.1%;"
+      ></div>
+      <div
+        class="key black"
+        data-note="A#5"
+        data-frequency="932.33"
+        data-key="5"
+        style="left: 89.3%;"
+      ></div>
+    </div>
+  </div>
+
+  <p class="footer">
+    Built by you & ChatGPT 🧠🎵
+  </p>
+
+  <script src="script.js"></script>
+</body>
+</html>
