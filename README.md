@@ -52,11 +52,11 @@ The keys light up and play automatically so you can learn the melody.
 ### 📁 Folder Structure
 
 virtual-piano/
-│
-├── index.html
-├── style.css
-├── script.js
-└── README.md
+  ├── index.html
+  ├── style.css
+  ├── script.js
+  └── README.md
+
 
 
 ---
