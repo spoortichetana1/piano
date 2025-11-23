@@ -49,7 +49,7 @@ The keys light up and play automatically so you can learn the melody.
 
 ---
 
-## 📁 Folder Structure
+### 📁 Folder Structure
 
 virtual-piano/
 │
