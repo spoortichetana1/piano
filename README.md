@@ -1,5 +1,7 @@
 # Virtual Piano 🎹
 
+TRY PLAYING HERE --> https://spoortichetana1.github.io/piano/
+
 A small 2-octave virtual piano implemented using Web Audio and vanilla JavaScript.
 
 This is a client-side project that runs in the browser — no build step required. The UI includes a visual piano keyboard, keyboard/mouse/touch input, recording & playback with loop and speed options, sustain pedal, selectable waveform sounds, and a small lesson mode (Twinkle Twinkle Little Star).
